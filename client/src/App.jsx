@@ -1,20 +1,17 @@
-import Header from '././Header/header'
-import NavbarLeft from './components/Navbar-left/navbarLeft'
-import Welcome from './components/WelcomeName/welcomeName'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
 
   return (
-    <>
-      <Header />
-      
-      <main>
-      <NavbarLeft />
-        <Welcome name="John" />
-      </main>
-    </>
-    
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user/:id" element={<Dashboard />} />
+      </Routes>
+    </Router>
+        
   )
 }
 

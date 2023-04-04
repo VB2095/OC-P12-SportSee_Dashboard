@@ -1,0 +1,12 @@
+.welcomeName {
+    flex: 15;
+    h1, span {
+        font-size: clamp(24px, 6vw, 46px);
+        margin-bottom: 10px
+    }
+    
+    span {
+        color: #FF0101;
+    }
+}
+

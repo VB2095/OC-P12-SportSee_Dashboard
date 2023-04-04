@@ -1,0 +1,24 @@
+.home {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    background-color: #020002;
+    color: #fff;
+    min-height: 100vh;
+    padding: 36px;
+    svg {
+        width: 30vw;
+        height: 100%;
+    }
+    a {
+        text-decoration: none;
+        color: #fff;
+        padding: 15px;
+
+        &:hover {
+            background-color: #fff;
+            color: #020002;
+            transition: 0.5s;
+        }
+    }
+}
