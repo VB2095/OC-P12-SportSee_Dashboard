@@ -1,0 +1,43 @@
+.barChart-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &_label {
+        display: flex;
+        gap: 32px;
+        padding: 10px;
+
+        & p:first-child {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -20px;
+                transform: translateY(-50%);
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #282D30;
+            }  
+        }
+
+        & p:nth-child(2) {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -20px;
+                transform: translateY(-50%);
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #E60000;
+            }
+        }
+    }
+}

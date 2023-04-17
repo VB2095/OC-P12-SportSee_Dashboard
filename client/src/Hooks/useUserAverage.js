@@ -1,23 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getUserInfos } from "../Services/getData";
+import { getUserAverage } from "../Services/getData";
 
-/**
- *
- * @returns {object} data, isLoading, error
- */
-export default function useUserData() {
+export default function useUserAverage() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
 
-  console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await getUserInfos(id);
+        const response = await getUserAverage(id);
         setData(response.data);
       } catch (error) {
         setError(error);
