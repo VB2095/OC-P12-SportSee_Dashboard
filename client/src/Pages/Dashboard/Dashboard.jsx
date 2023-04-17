@@ -1,7 +1,7 @@
 import Header from '../../components/Header/header'
 import NavbarLeft from '../../components/Navbar-left/navbarLeft'
 import Welcome from '../../components/Welcome/welcome'
-import useUserData from '../../Hooks/useUserData'
+import useUser from '../../Hooks/useUser'
 import BarChartActivity from '../../components/Charts/BarChart/BarChart'
 import LineChartSessions from '../../components/Charts/LineChart/LineChart'
 import RadialChartScore from '../../components/Charts/RadialChart/RadialChart'
@@ -14,7 +14,7 @@ import lipidsIcon from '../../assets/lipides.png'
 import './dashboard.scss'
 function Dashboard() {
 
-  const { data, isLoading, error } = useUserData();
+  const { data, isLoading, error } = useUser("infos");
   // Si les données sont en cours de chargement, on peut afficher un indicateur de chargement
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;

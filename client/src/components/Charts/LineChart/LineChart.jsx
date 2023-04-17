@@ -1,8 +1,8 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import useUserAverage from "../../../Hooks/useUserAverage"
+import useUser from "../../../Hooks/useUser"
 
 function LineChartSessions () {
-    const { data, isLoading, error } = useUserAverage();
+    const { data, isLoading, error } = useUser("average");
 
     if (isLoading) {
         return <div className="loading">Chargement en cours...</div>;

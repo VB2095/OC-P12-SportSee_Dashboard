@@ -1,8 +1,8 @@
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
-import useUserData from "../../../Hooks/useUserData"
+import useUser from "../../../Hooks/useUser"
 
 function RadialChartScore () {
-    const { data, isLoading, error } = useUserData();
+    const { data, isLoading, error } = useUser("infos");
 
     if (isLoading) {
         return <div className="loading">Chargement en cours...</div>;
@@ -12,9 +12,9 @@ function RadialChartScore () {
         return <div>Une erreur est survenue</div>;
     }
 
-    // data.todayScore = data.todayScore * 100
-    // console.log ("dataScore", data.todayScore)
-    // console.log("radial data", data)
+    data.todayScore = data.todayScore * 100
+    console.log ("dataScore", data.todayScore)
+    console.log("radial data", data)
    
     const dataScore = [
         { name: "Score", value: data.todayScore },

@@ -1,8 +1,8 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-import useUserPerformance from '../../../Hooks/useUserPerformance';
+import useUser from '../../../Hooks/useUser';
 
 function RadarChartPerf() {
-    const { data, isLoading, error } = useUserPerformance();
+    const { data, isLoading, error } = useUser("performance");
 
     if (isLoading) {
       return <div className="loading">Chargement en cours...</div>;

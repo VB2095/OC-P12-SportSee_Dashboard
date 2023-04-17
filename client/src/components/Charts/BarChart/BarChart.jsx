@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import useUserActivities from '../../../Hooks/useUserActivities';
+import useUser from '../../../Hooks/useUser';
 import './barchart.scss';
 
 
@@ -8,7 +8,7 @@ import './barchart.scss';
  * @returns {JSX.Element} BarChartActivity
  */
 function BarChartActivity() {
-  const { data, isLoading, error } = useUserActivities();
+  const { data, isLoading, error } = useUser("activities");
 
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;
