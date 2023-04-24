@@ -34,18 +34,18 @@ function BarChartActivity() {
 
   return (
     <>
+    <div className='barChart'>
     <div className='barChart-title'>
       <h2>Activité quotidienne</h2>
       <div className='barChart-title_label'>
         <p>Poids (kg)</p>
         <p>Calories brûlées (kCal)</p>
       </div>
-      
     </div>
-    <ResponsiveContainer width="90%" height={400}>
-      <BarChart data={data.sessions} width={100}>
-        <CartesianGrid vertical={false} horizontal={true} strokeDasharray="3 3" />
-        <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}}   tickFormatter={(tickValue) => {
+    <ResponsiveContainer  width="100%" height="80%" >
+      <BarChart data={data.sessions} barGap={8} barCategoryGap={1}  >
+        <CartesianGrid vertical={false} horizontal={true} strokeDasharray="1 1" />
+        <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} dy={15}  tickFormatter={(tickValue) => {
         const date = new Date(tickValue);
         const day = date.getDate().toString().padStart(2, '0');
         return day;
@@ -58,6 +58,7 @@ function BarChartActivity() {
         <Bar dataKey="calories" name="Poids (kg)" yAxisId="calories" fill="#E60000" barSize={10} radius={[10, 10, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
+    </div>
     </>
   );
 }

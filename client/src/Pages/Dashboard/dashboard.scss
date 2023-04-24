@@ -9,3 +9,19 @@
     height: 100vh;
 
 }
+
+.dashboard_data {
+    display: grid;
+    grid-template-columns: 1024px auto;
+    margin: auto;
+    grid-gap: 60px;
+
+
+    & .bottomCharts {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 100%;
+       
+    }
+}

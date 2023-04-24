@@ -1,5 +1,6 @@
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import useUser from "../../../Hooks/useUser"
+import './radialChart.scss'
 
 function RadialChartScore () {
     const { data, isLoading, error } = useUser("infos");
@@ -12,38 +13,72 @@ function RadialChartScore () {
         return <div>Une erreur est survenue</div>;
     }
 
-    data.todayScore = data.todayScore * 100
+    if (data.todayScore < 1 ) {
+      data.todayScore = data.todayScore * 100
+    }
+    
     console.log ("dataScore", data.todayScore)
     console.log("radial data", data)
    
     const dataScore = [
         { name: "Score", value: data.todayScore },
+        
+
     ]
 
-
     return (
-    // <div className="radialChart">
-    //     <ResponsiveContainer width="100%" height="100%">
-    //     <RadialBarChart cx="100%" cy="100%" innerRadius="10%" outerRadius="80%" barSize={10} data={dataScore}>
-    //       <RadialBar
-    //         minAngle={15}
-    //         label={{ position: 'insideStart', fill: '#000' }}
-    //         background
-    //         clockWise
-    //         dataKey="value"
-    //       />
-          
-    //       {/* <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
-    //     </RadialBarChart>
-    //   </ResponsiveContainer>
-    //   <p>toto</p>
-    //     </div> 
-<RadialBarChart width={300} height={300} innerRadius={20}
-      outerRadius={140}
-      barSize={10} data={dataScore}>
-  <RadialBar minAngle={10} background
-        clockWise dataKey="value" />
-</RadialBarChart>
+    <div className="radialChart">
+        <div className="radialChart__title">
+            <h3>Score</h3>
+        </div>
+      <RadialBarChart 
+      width={250} 
+      height={250}
+      innerRadius='70%'
+      outerRadius='120%'
+      barSize={12} 
+      data={dataScore}
+      startAngle={90}
+      endAngle={450}
+    >
+      <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+      <RadialBar minAngle={300} clockWise={true} dataKey='value' fill='#FF0000' cornerRadius={30 / 2} />
+      <text
+                x='50%'
+                y='35%'
+                dy={+12}
+                style={{ fontSize: 22, fontWeight: 'bold', fill: '#282D30' }}
+                width={200}
+                textAnchor='middle'
+
+            >
+                {data.todayScore}%
+            </text>
+            <text
+                x='50%'
+                y='45%'
+                dy={+12}
+                style={{ fontSize: 22, fill: '#74798C' }}
+                width={200}
+                textAnchor='middle'
+
+            >
+                de votre
+            </text>
+            <text
+                x='50%'
+                y='55%'
+                dy={+12}
+                style={{ fontSize: 22, fill: '#74798C' }}
+                width={200}
+                textAnchor='middle'
+                
+            >
+                objectif
+            </text>
+    </RadialBarChart>
+    </div>
+
     )
 }
 

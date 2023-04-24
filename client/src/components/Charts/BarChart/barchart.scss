@@ -1,8 +1,19 @@
+.barChart {
+    background-color: #FBFBFB;
+    padding: 16px;
+    border-radius: 8px;
+    // width: clamp(300px, 76vw, 800px);
+    height: 440px;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
 .barChart-title{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    min-width: 100%;
     &_label {
         display: flex;
         gap: 32px;

@@ -1,9 +1,10 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import useUser from "../../../Hooks/useUser"
+import './lineChart.scss'
 
 function LineChartSessions () {
     const { data, isLoading, error } = useUser("average");
-
+    const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     if (isLoading) {
         return <div className="loading">Chargement en cours...</div>;
     }
@@ -11,17 +12,42 @@ function LineChartSessions () {
     if (error) {
         return <div>Une erreur est survenue</div>;
     }
+    const updatedData = data.sessions.map((item) => {
+        const dayOfWeek = daysOfWeek[item.day - 1]; // récupérer la lettre correspondante à la valeur de la clé "day"
+        return {
+            ...item,
+            day: dayOfWeek // remplacer la valeur de la clé "day"
+        }
+    });
+
+    console.log ("data line", updatedData)
+
+    const CustomTooltip = ({ active, payload, label }) => {
+        if (active && payload && payload.length) {
+          return (
+            <div style={{backgroundColor: "#fff", color: "#000", padding:"8px",}}>
+              <p className="label">{`${payload[0].value} min`}</p>
+            </div>
+          );
+        }
+      
+        return null;
+      };
 
     return (
-        <LineChart width={730} height={250} data={data.sessions}
+    <div className="lineChart">
+      <div className="lineChart-title">
+        <h2>Durée moyenne des sessions</h2>
+      </div>
+        <LineChart width={230} height={250} data={updatedData}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="day" />
-        <YAxis />
-        <Tooltip />
-        <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
+        <CartesianGrid display="none"/>
+        <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 14, stroke: "rgba(255, 255, 255, 0.7)" }} />
+        <YAxis tickLine={false} display="none" domain={[0, "dataMax + 30"]} hide={true} />
+        <Tooltip content={<CustomTooltip />}/>
+        <Line type="monotone" dataKey="sessionLength" padding={{ left: 10 }} stroke="rgba(255, 255, 255, 0.7)" strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} />
       </LineChart>
-        
+    </div>
 
     )
 }

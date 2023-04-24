@@ -3,7 +3,7 @@ import useUser from '../../../Hooks/useUser';
 
 function RadarChartPerf() {
     const { data, isLoading, error } = useUser("performance");
-
+    const kinds = ['Vitesse', 'Endurance', 'Force', 'Agilité', 'Coordination', 'Réflexes'];
     if (isLoading) {
       return <div className="loading">Chargement en cours...</div>;
     }
@@ -11,16 +11,21 @@ function RadarChartPerf() {
     if (error) {
       return <div>Une erreur est survenue</div>;
     }
+    console.log ("data radar", data)
 
+
+
+   
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis />
-          <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        </RadarChart>
+
+      <ResponsiveContainer width="80" height="100%">
+				<RadarChart cx='50%' cy='50%' outerRadius='65%' data={data}>
+						<PolarGrid gridType="polygon" />
+						<PolarAngleAxis	dataKey="kind" stroke='white' tickLine={false} axisLine={false}  tick={{ fontSize: 10 }}/>
+						<Radar dataKey='value' stroke='#FF0101'	fill='#FF0101' fillOpacity={0.7} />
+				</RadarChart>
       </ResponsiveContainer>
+
     );
   }
 
