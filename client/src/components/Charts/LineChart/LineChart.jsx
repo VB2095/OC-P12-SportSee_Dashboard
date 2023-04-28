@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import useUser from "../../../Hooks/useUser"
 import './lineChart.scss'
 
@@ -39,14 +39,16 @@ function LineChartSessions () {
       <div className="lineChart-title">
         <h2>Durée moyenne des sessions</h2>
       </div>
-        <LineChart width={230} height={250} data={updatedData}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <ResponsiveContainer width="100%" height="70%">
+        <LineChart data={updatedData}
+        >
         <CartesianGrid display="none"/>
-        <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 14, stroke: "rgba(255, 255, 255, 0.7)" }} />
-        <YAxis tickLine={false} display="none" domain={[0, "dataMax + 30"]} hide={true} />
+        <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 14, fill: "rgba(255, 255, 255, 0.7)" }} />
+        <YAxis tickLine={false}  display="none" domain={[0, "dataMax + 30"]} hide={true} />
         <Tooltip content={<CustomTooltip />}/>
         <Line type="monotone" dataKey="sessionLength" padding={{ left: 10 }} stroke="rgba(255, 255, 255, 0.7)" strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} />
       </LineChart>
+      </ResponsiveContainer>
     </div>
 
     )

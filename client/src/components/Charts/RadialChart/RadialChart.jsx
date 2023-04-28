@@ -31,16 +31,8 @@ function RadialChartScore () {
         <div className="radialChart__title">
             <h3>Score</h3>
         </div>
-      <RadialBarChart 
-      width={250} 
-      height={250}
-      innerRadius='70%'
-      outerRadius='120%'
-      barSize={12} 
-      data={dataScore}
-      startAngle={90}
-      endAngle={450}
-    >
+    <ResponsiveContainer width="100%" height="100%">
+      <RadialBarChart innerRadius='70%' outerRadius='120%' barSize={12} data={dataScore} startAngle={90} endAngle={450}>
       <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
       <RadialBar minAngle={300} clockWise={true} dataKey='value' fill='#FF0000' cornerRadius={30 / 2} />
       <text
@@ -77,6 +69,7 @@ function RadialChartScore () {
                 objectif
             </text>
     </RadialBarChart>
+    </ResponsiveContainer>
     </div>
 
     )

@@ -3,7 +3,7 @@ import './keyDatas.scss'
 function KeyDatas (props) {
     const { picto, keyDataCount, keyDataText} = props
     return (
-        <div className="keyData_container">
+        <div className="keyData_content">
             <img src={picto} alt="Icone de donnée clé" />
                 <div>
                     <p>{keyDataCount}</p>

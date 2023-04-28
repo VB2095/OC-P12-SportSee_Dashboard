@@ -1,8 +1,9 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';
 import useUser from '../../../Hooks/useUser';
+import './radarChart.scss';
 
 function RadarChartPerf() {
-    const { data, isLoading, error } = useUser("performance");
+    const { data, setData, isLoading, error } = useUser("performance");
     const kinds = ['Vitesse', 'Endurance', 'Force', 'Agilité', 'Coordination', 'Réflexes'];
     if (isLoading) {
       return <div className="loading">Chargement en cours...</div>;
@@ -12,20 +13,28 @@ function RadarChartPerf() {
       return <div>Une erreur est survenue</div>;
     }
     console.log ("data radar", data)
+    
+    const dataRadar = [
+      { kind: 'Cardio', value: data.data[0].value },
+      { kind: 'Energie', value: data.data[1].value },
+      { kind: 'Endurance', value: data.data[2].value },
+      { kind: 'Force', value: data.data[3].value },
+      { kind: 'Vitesse', value: data.data[4].value },
+      { kind: 'Intensité', value: data.data[5].value },
+    ];
 
-
-
-   
+    console.log("dataRadar", dataRadar)
+    
     return (
-
-      <ResponsiveContainer width="80" height="100%">
-				<RadarChart cx='50%' cy='50%' outerRadius='65%' data={data}>
-						<PolarGrid gridType="polygon" />
-						<PolarAngleAxis	dataKey="kind" stroke='white' tickLine={false} axisLine={false}  tick={{ fontSize: 10 }}/>
-						<Radar dataKey='value' stroke='#FF0101'	fill='#FF0101' fillOpacity={0.7} />
-				</RadarChart>
-      </ResponsiveContainer>
-
+      <div className="radarChart">
+        <ResponsiveContainer width="100%" height="100%">
+        <RadarChart outerRadius={100} data={dataRadar}>
+          <PolarGrid radialLines={false} stroke="#fff"/>
+          <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} stroke='#fff'/>
+          <Radar dataKey="value" fill="#FF0101" fillOpacity={0.6} />
+        </RadarChart>
+        </ResponsiveContainer>
+      </div>
     );
   }
 

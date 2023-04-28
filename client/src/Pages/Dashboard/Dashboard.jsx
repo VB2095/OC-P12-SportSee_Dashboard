@@ -33,19 +33,23 @@ function Dashboard() {
         <section>
           <Welcome name={data.userInfos.firstName}/>
           <div className="dashboard_data">
-            <BarChartActivity />
-            <div className='keyData'>
+            <div className='leftCharts_container'>
+              <BarChartActivity /> 
+              <div className='bottomCharts'>
+                <LineChartSessions />
+                <RadarChartPerf />
+                <RadialChartScore />
+              </div>
+            </div>
+            <div className='keyData_container'>
                 <KeyDatas picto={caloriesIcon} keyDataCount={`${data.keyData.calorieCount}kCal`} keyDataText="Calories"/>
                 <KeyDatas picto={proteinIcon} keyDataCount={`${data.keyData.carbohydrateCount}g`} keyDataText="Proteines"/>
                 <KeyDatas picto={glucideIcon} keyDataCount={`${data.keyData.lipidCount}g`} keyDataText="Glucides"/>
                 <KeyDatas picto={lipidsIcon} keyDataCount={`${data.keyData.proteinCount}g`} keyDataText="Lipides"/>
             </div>
-            <div className='bottomCharts'>
-            <LineChartSessions />
-            <RadarChartPerf />
-            <RadialChartScore />
-            </div>
-        </div>
+            
+            
+          </div>
         </section>
       </main>
     </>

@@ -44,14 +44,14 @@ function BarChartActivity() {
     </div>
     <ResponsiveContainer  width="100%" height="80%" >
       <BarChart data={data.sessions} barGap={8} barCategoryGap={1}  >
-        <CartesianGrid vertical={false} horizontal={true} strokeDasharray="1 1" />
-        <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} dy={15}  tickFormatter={(tickValue) => {
+        <CartesianGrid vertical={false} horizontal={true} strokeDasharray="3"  />
+        <XAxis dataKey="day" tickLine={false}  dy={15}  tickFormatter={(tickValue) => {
         const date = new Date(tickValue);
         const day = date.getDate().toString().padStart(2, '0');
         return day;
         }}/>
         <YAxis yAxisId="weight" orientation="right" tickCount="3" axisLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} domain={[0, 'dataMax + 10']} />
-        <YAxis yAxisId="calories" orientation="left" stroke="none" tickCount="3" axisLine={false} domain={[69, 'auto']}/>
+        <YAxis yAxisId="calories" orientation="left" stroke="none" tickCount="1" axisLine={false} domain={[0, 'auto']}/>
         
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="kilogram" name="Calories brûlées (kCal)" yAxisId="weight" fill="#282D30" barSize={10} radius={[10, 10, 0, 0]} />
