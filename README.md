@@ -1,64 +1,56 @@
-# Project 9 - Front-end Dashboard
+# SportSee Dashboard
 
-This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
+SportSee is a dashboard application that allows users to track their sports activities. This project was created using React and Vite for the front-end and Node.js for the back-end. The back-end can be launched using either Docker or npm/node.
 
-## 1. General information
+## Installation
 
-To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.
+### Prerequisites
 
-## 2. Project (**without Docker**)
+- Node.js (version 12.18)
+- Yarn or npm
 
-### 2.1 Prerequisites
+If you are working with multiple versions of Node.js, we recommend you install nvm, a tool that allows you to manage Node.js versions easily.
 
-- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
+### General Instructions
 
-If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
+1. Fork the repository
+2. Clone the repository on your computer.
 
-### 2.2 Launching the project
+### Front-end
 
-- Fork the repository
-- Clone it on your computer.
-- The `yarn` command will allow you to install the dependencies.
-- The `yarn dev` command will allow you to run the micro API.
+1. Open a terminal and go to the `client` directory. (cd client)
+2. In the `client` directory, run `yarn` or `npm install` command to install dependencies.
+3. Run `yarn dev` or `npm run dev` command to start the front-end.
 
+### Back-end
 
-## 3. Project (**with Docker**)
+#### Without Docker
 
-### 2.1 Prerequisites
+1. In the project root directory, run `yarn` or `npm install` command to install dependencies.
+2. Run `yarn dev` or `npm run dev` command to start the back-end. The backend should be running on port localhost/3000. If you want to change the port, you can do so by editing the `PORT` variable in the `.env` file.
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+#### With Docker
 
-### 2.2 Starting the project
+1. Make sure you have Docker Desktop installed.
+2. In the project root directory, run the following command to build your Docker image: `docker image build --no-cache -t micro-api .`
+3. Run the following command to create your Docker container and run your image on port 3000: `docker container run --name micro-api -p 3000:3000 -dt micro-api yarn` or `docker container run --name micro-api -p 3000:3000 -dt micro-api npm run dev`
+4. To stop the container, run `docker container stop micro-api`.
+5. To delete the container, run `docker container rm micro-api`.
 
-- The `docker image build --no-cache -t micro-api .` command will allow you to build your image.
-- The `docker container run --name micro-api -p 3000:3000 -dt micro-api yarn` command will allow you to create your Docker container and run your image on port 3000.
-- The `docker container stop micro-api` command will allow you to stop your micro-api.
-- The `docker container rm micro-api` command will allow you to delete your micro-api container.
+### VS Code and Container Remotes
 
-### 2.3 Vscode and container remotes
+If you have VS Code installed, you can easily launch your project in a Docker environment. Here's how:
 
-Finally, if you have VsCode, you can easily launch your project in a docker environment.
+1. Install the Remote Development extension in VS Code.
+2. Click on the "Reopen in Container" button.
+3. Once in the container, run the `yarn dev` or `npm run dev` command.
 
-You will need the [Remote Development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Once you have this extension installed, just click on the `Reopen in Container` button.
+For more information about the backend you can check this repository: https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
 
-Once in the container, run the `yarn dev` command.
+## Usage
 
-## 4. Endpoints
+Once the application is running, open a web browser and go to http://127.0.0.1:5173/ (or whatever adress is on your client terminal) to view the website. Choes a user to view the dasbhoard. The dashboard allows users to view their activity data and statistics.
 
-### 4.1 Possible endpoints
+## Contributing
 
-This project includes four endpoints that you will be able to use: 
-
-- `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-- `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
-- `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
-- `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
-
-
-**Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
-
-### 4.2 Examples of queries
-
-- `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
-- `http://localhost:3000/user/18` - Retrieves user 18's main information.
+We welcome contributions to the SportSee Dashboard project. Please submit a pull request with your changes.

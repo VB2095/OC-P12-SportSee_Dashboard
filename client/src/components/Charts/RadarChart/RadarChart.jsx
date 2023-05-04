@@ -2,6 +2,13 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import useUser from '../../../Hooks/useUser';
 import './radarChart.scss';
 
+/**
+ * 
+ * @returns {JSX.Element} RadarChartPerf
+ * 
+ * 
+ */
+
 function RadarChartPerf() {
     const { data, setData, isLoading, error } = useUser("performance");
     const kinds = ['Vitesse', 'Endurance', 'Force', 'Agilité', 'Coordination', 'Réflexes'];

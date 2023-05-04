@@ -7,6 +7,19 @@ import {
   getUserPerformance,
 } from "../Services/getData";
 
+/**
+ *
+ * @param {*} type
+ *
+ * type = "infos" => return user infos
+ * type = "activities" => return user activities
+ * type = "average" => return user average
+ * type = "performance" => return user performance
+ *
+ * @returns  {data, isLoading, error}
+ *
+ */
+
 export default function useUser(type) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

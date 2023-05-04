@@ -2,6 +2,13 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import useUser from "../../../Hooks/useUser"
 import './lineChart.scss'
 
+/**
+ * 
+ * @returns {JSX.Element} LineChartSessions
+ * 
+ * 
+ */
+
 function LineChartSessions () {
     const { data, isLoading, error } = useUser("average");
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -36,17 +43,17 @@ function LineChartSessions () {
 
     return (
     <div className="lineChart">
-      <div className="lineChart-title">
-        <h2>Durée moyenne des sessions</h2>
-      </div>
-      <ResponsiveContainer width="100%" height="70%">
-        <LineChart data={updatedData}
-        >
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={updatedData} >
+          <text style={{ fontSize: 18, fill: "rgba(255, 255, 255, 0.7)" }} x="0" y="9" dy="0.71em">
+            <tspan x="26" y="39" dy="0.71em">Durée moyenne des</tspan>
+            <tspan x="26" y="39" dy="1.81em">sessions</tspan>
+          </text>
         <CartesianGrid display="none"/>
-        <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 14, fill: "rgba(255, 255, 255, 0.7)" }} />
+        <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 14, fill: "rgba(255, 255, 255, 0.7)" }}  />
         <YAxis tickLine={false}  display="none" domain={[0, "dataMax + 30"]} hide={true} />
-        <Tooltip content={<CustomTooltip />}/>
-        <Line type="monotone" dataKey="sessionLength" padding={{ left: 10 }} stroke="rgba(255, 255, 255, 0.7)" strokeWidth={2} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} />
+        <Tooltip animationEasing="ease-out" content={<CustomTooltip />}/>
+        <Line type="monotone" dataKey="sessionLength" padding={{ margin: 0, right: 0  }} stroke="rgba(255, 255, 255, 0.7)" strokeWidth={3} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} />
       </LineChart>
       </ResponsiveContainer>
     </div>

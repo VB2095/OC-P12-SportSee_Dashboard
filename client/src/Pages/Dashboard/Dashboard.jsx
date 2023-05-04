@@ -12,6 +12,20 @@ import proteinIcon from '../../assets/proteines.png'
 import glucideIcon from '../../assets/glucides.png'
 import lipidsIcon from '../../assets/lipides.png'
 import './dashboard.scss'
+
+/**
+ * 
+ * @returns {JSX.Element} Dashboard
+ * @constructor 
+ * @param {string} data.userInfos.firstName - First name of the user
+ * @param {string} data.keyData.calorieCount - Number of calories
+ * @param {string} data.keyData.carbohydrateCount - Number of carbohydrates
+ * @param {string} data.keyData.lipidCount - Number of lipids
+ * @param {string} data.keyData.proteinCount - Number of proteins
+ *
+ *  */
+
+
 function Dashboard() {
 
   const { data, isLoading, error } = useUser("infos");

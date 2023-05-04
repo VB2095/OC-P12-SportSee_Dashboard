@@ -2,6 +2,13 @@ import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis 
 import useUser from "../../../Hooks/useUser"
 import './radialChart.scss'
 
+/** 
+ * 
+ * @returns {JSX.Element} RadialChartScore
+ * 
+ * 
+*/
+
 function RadialChartScore () {
     const { data, isLoading, error } = useUser("infos");
 
@@ -32,10 +39,16 @@ function RadialChartScore () {
             <h3>Score</h3>
         </div>
     <ResponsiveContainer width="100%" height="100%">
-      <RadialBarChart innerRadius='70%' outerRadius='120%' barSize={12} data={dataScore} startAngle={90} endAngle={450}>
+      <RadialBarChart innerRadius='70%' outerRadius='120%' barSize={12} data={dataScore} startAngle={90} endAngle={450} >
       <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+      
       <RadialBar minAngle={300} clockWise={true} dataKey='value' fill='#FF0000' cornerRadius={30 / 2} />
-      <text
+      <text x='100%' y='100%' textAnchor='middle' dominantBaseline='middle' className='radialChart__text'>
+            <tspan x="180" y="85" dy="0.71em" style={{ fontSize: 22, fontWeight: 'bold', fill: '#282D30' }}>{data.todayScore}%</tspan>
+            <tspan x="180" y="100" dy="1.71em" style={{ fontSize: 22, fill: '#74798C' }}>de votre</tspan>
+            <tspan x="180" y="110" dy="2.71em" style={{ fontSize: 22, fill: '#74798C' }}>objectif</tspan>
+        </text>
+      {/* <text
                 x='50%'
                 y='35%'
                 dy={+12}
@@ -67,7 +80,7 @@ function RadialChartScore () {
                 
             >
                 objectif
-            </text>
+            </text> */}
     </RadialBarChart>
     </ResponsiveContainer>
     </div>
