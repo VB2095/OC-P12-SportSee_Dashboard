@@ -9,7 +9,9 @@ import {
 
 /**
  *
- * @param {*} type
+ * @param {string} type
+ * @description get user infos from API
+ * @example
  *
  * type = "infos" => return user infos
  * type = "activities" => return user activities
@@ -17,6 +19,8 @@ import {
  * type = "performance" => return user performance
  *
  * @returns  {data, isLoading, error}
+ *
+ * @param {object} data
  *
  */
 

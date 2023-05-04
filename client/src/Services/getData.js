@@ -1,5 +1,15 @@
 import axios from "axios";
 
+/**
+ *
+ * @param {number} id
+ * @returns {object} user infos
+ * @description get user infos from API
+ *
+ * @example
+ * const userInfos = await getUserInfos(12);
+ */
+
 export const getUserInfos = async (id) => {
   try {
     const response = await axios.get(`http://localhost:3000/user/${id}`);

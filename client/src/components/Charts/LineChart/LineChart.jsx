@@ -6,6 +6,10 @@ import './lineChart.scss'
  * 
  * @returns {JSX.Element} LineChartSessions
  * 
+ * @param {object} data - Data for the line chart
+ * @param {string} data.day - Day of the week
+ * @param {number} data.sessionLength - Average session length
+ * 
  * 
  */
 

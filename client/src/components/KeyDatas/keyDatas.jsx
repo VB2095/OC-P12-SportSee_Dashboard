@@ -15,10 +15,10 @@ function KeyDatas (props) {
     return (
         <div className="keyData_content">
             <img src={picto} alt="Icone de donnée clé" />
-                <div>
-                    <p>{keyDataCount}</p>
-                    <span>{keyDataText}</span>
-                </div>
+            <div>
+                <p>{keyDataCount}</p>
+                <span>{keyDataText}</span>
+            </div>
         </div>
     )
 }

@@ -29,12 +29,12 @@ import './dashboard.scss'
 function Dashboard() {
 
   const { data, isLoading, error } = useUser("infos");
-  // Si les données sont en cours de chargement, on peut afficher un indicateur de chargement
+  // Si les données sont en cours de chargement, on affiche un indicateur de chargement
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;
   }
 
-  // Si une erreur est survenue lors de la récupération des données, on peut afficher un message d'erreur
+  // Si une erreur est survenue lors de la récupération des données, on affiche un message d'erreur
   if (error) {
     return <div>Une erreur est survenue</div>;
   }

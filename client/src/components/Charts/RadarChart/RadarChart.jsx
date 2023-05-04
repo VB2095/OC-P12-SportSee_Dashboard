@@ -1,4 +1,4 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer} from 'recharts';
 import useUser from '../../../Hooks/useUser';
 import './radarChart.scss';
 
@@ -6,7 +6,10 @@ import './radarChart.scss';
  * 
  * @returns {JSX.Element} RadarChartPerf
  * 
- * 
+ * @param {object} data - Data for the radar chart
+ * @param {string} dataRadar.kind - Kind of performance
+ * @param {number} dataRadar.value - Value of performance
+ *
  */
 
 function RadarChartPerf() {
@@ -37,7 +40,7 @@ function RadarChartPerf() {
         <ResponsiveContainer width="100%" height="100%">
         <RadarChart outerRadius={100} data={dataRadar}>
           <PolarGrid radialLines={false} stroke="#fff"/>
-          <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} stroke='#fff'/>
+          <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} stroke='#fff' fontSize={"0.8rem"} />
           <Radar dataKey="value" fill="#FF0101" fillOpacity={0.6} />
         </RadarChart>
         </ResponsiveContainer>

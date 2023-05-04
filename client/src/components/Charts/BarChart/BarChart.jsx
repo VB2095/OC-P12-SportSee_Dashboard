@@ -6,7 +6,15 @@ import './barchart.scss';
 /**
  * 
  * @returns {JSX.Element} BarChartActivity
+ * 
+ * @param {object} data - Data for the bar chart
+ * @param {string} data.day - Day of the week
+ * @param {number} data.kilogram - Weight in kg
+ * @param {number} data.calories - Calories burned
+ * 
+ * 
  */
+
 function BarChartActivity() {
   const { data, isLoading, error } = useUser("activities");
 
@@ -52,7 +60,6 @@ function BarChartActivity() {
         }}/>
         <YAxis yAxisId="weight" orientation="right" tickCount="3" axisLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} domain={[0, 'dataMax + 10']} />
         <YAxis yAxisId="calories" orientation="left" stroke="none" tickCount="1" axisLine={false} domain={[0, 'auto']}/>
-        
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="kilogram" name="Calories brûlées (kCal)" yAxisId="weight" fill="#282D30" barSize={10} radius={[10, 10, 0, 0]} />
         <Bar dataKey="calories" name="Poids (kg)" yAxisId="calories" fill="#E60000" barSize={10} radius={[10, 10, 0, 0]} />

@@ -1,5 +1,13 @@
 import "./welcome.scss";
 
+/**
+ * 
+ * @param {*} props
+ * @param {string} props.name - User name
+ * @returns {JSX.Element} Welcome user with name
+ * 
+ */
+
 function Welcome({name}) {
 
   return (

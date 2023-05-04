@@ -1,5 +1,10 @@
 import "./header.scss"
 
+/**
+ * 
+ * @returns {JSX.Element} Header with logo and links
+ */
+
 function Header() {
   return (
    <header>
