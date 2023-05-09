@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: 60vw auto;
     grid-auto-flow: column;
-    gap: 60px;
+    gap: clamp(32px, 5vw, 64px);
     margin: auto;
     max-width: 100%;
 
@@ -40,8 +40,16 @@
         flex-wrap: wrap;
         max-width: 100%;
 
+        @media (max-width: 1024px) {
+            div {
+                margin-bottom: 10px;
+               }
+        }
+        
+
         @media (max-width: 768px) {
            gap: 32px;
+           
         }
        
     }

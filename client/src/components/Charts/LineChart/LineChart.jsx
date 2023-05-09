@@ -36,7 +36,8 @@ function LineChartSessions () {
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
           return (
-            <div style={{backgroundColor: "#fff", color: "#000", padding:"8px",}}>
+            <div style={{backgroundColor: "#fff", color: "#000", padding:"8px",}} className='lineTooltip'>
+
               <p className="label">{`${payload[0].value} min`}</p>
             </div>
           );
@@ -48,16 +49,17 @@ function LineChartSessions () {
     return (
     <div className="lineChart">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={updatedData} >
+        <LineChart data={updatedData}  >
           <text style={{ fontSize: 18, fill: "rgba(255, 255, 255, 0.7)" }} x="0" y="9" dy="0.71em">
             <tspan x="26" y="39" dy="0.71em">Durée moyenne des</tspan>
             <tspan x="26" y="39" dy="1.81em">sessions</tspan>
           </text>
-        <CartesianGrid display="none"/>
+        {/* <CartesianGrid display="none" width={window.screen.width}/> */}
         <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 14, fill: "rgba(255, 255, 255, 0.7)" }}  />
         <YAxis tickLine={false}  display="none" domain={[0, "dataMax + 30"]} hide={true} />
-        <Tooltip animationEasing="ease-out" content={<CustomTooltip />}/>
-        <Line type="monotone" dataKey="sessionLength" padding={{ margin: 0, right: 0  }} stroke="rgba(255, 255, 255, 0.7)" strokeWidth={3} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} />
+  
+        <Tooltip animationEasing="ease-out" content={<CustomTooltip />} />
+        <Line type="monotone" dataKey="sessionLength" padding={{ left: 10 }} stroke="rgba(255, 255, 255, 0.7)"  strokeWidth={3} dot={false} activeDot={{ r: 4, strokeWidth: 4, stroke: "white" }} className='chartLine' />
       </LineChart>
       </ResponsiveContainer>
     </div>

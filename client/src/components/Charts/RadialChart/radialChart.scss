@@ -1,16 +1,18 @@
 .radialChart {
     background-color: #FBFBFB;
     border-radius: 8px;
-    padding: 16px;
-    width: 350px;
-    height: 350px;
+    // padding: 16px;
+    width: 320px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    align-items: center;
 
 }
-
+.chartSurface {
+    transform: translateY(8%);
+}
 .radialChart__text {
     display: flex;
     font-size: 12px;
