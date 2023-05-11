@@ -29,8 +29,8 @@ function Home () {
             <h2>Vous êtes sur la page d'accueil</h2>
             <p>Ce site vous permets d'accéder à un prototype de dasbhoard gérant des données fictives de performance sportive.</p>
             <p>Pour afficher ces données connecter vous à un des profils ci-dessous :</p>
-            <Link to="/user/12">Se connecter en tant que Karl Dovineau</Link>
-            <Link to="/user/18">Se connecter en tant que Cecilia Ratorez</Link>
+            <Link to="/user/12">Se connecter en tant que Utilisateur 1</Link>
+            <Link to="/user/18">Se connecter en tant que Utilisateur 2</Link>
         </div>
     )
 }

@@ -30,7 +30,6 @@ export default function useUser(type) {
       setIsLoading(true);
       try {
         const response = await getUser(id, type);
-        console.log("response", response);
         setData(response.data);
       } catch (error) {
         setError(error);

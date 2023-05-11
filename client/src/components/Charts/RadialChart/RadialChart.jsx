@@ -26,14 +26,9 @@ function RadialChartScore () {
     if (data.todayScore < 1 ) {
       data.todayScore = data.todayScore * 100
     }
-    
-    console.log ("dataScore", data.todayScore)
-    console.log("radial data", data)
    
     const dataScore = [
         { name: "Score", value: data.todayScore },
-        
-
     ]
 
     return (

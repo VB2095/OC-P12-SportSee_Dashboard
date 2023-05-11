@@ -34,12 +34,9 @@ function Dashboard() {
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;
   }
-
   // Si une erreur est survenue lors de la récupération des données, on affiche un message d'erreur
   if (error) {
-    console.log("error", error)
     return <div>Une erreur est survenue</div>;
-    
   }
    
   return (

@@ -32,8 +32,6 @@ function LineChartSessions () {
         }
     });
 
-    console.log ("data line", updatedData)
-
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
           return (

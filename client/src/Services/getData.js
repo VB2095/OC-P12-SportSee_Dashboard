@@ -9,8 +9,7 @@ import {
 
 export const apiUrl = import.meta.env.VITE_API_URL;
 export const appMode = import.meta.env.VITE_APP_MODE;
-console.log("apiUrl", apiUrl);
-console.log("appMode", appMode);
+
 export const getUser = async (id, type) => {
   if (appMode === "development") {
     return await getUserMockedData(id, type);
@@ -47,6 +46,5 @@ export const getUserMockedData = async (id, type) => {
       resolve({ data: user });
     }, 1000);
   });
-  console.log("Data GetUserMocked.js :", response);
   return response;
 };

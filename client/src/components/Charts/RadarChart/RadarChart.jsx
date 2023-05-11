@@ -23,8 +23,7 @@ function RadarChartPerf() {
     if (error) {
       return <div>Une erreur est survenue</div>;
     }
-    console.log ("data radar", data)
-    
+
     const dataRadar = [
       { kind: 'Cardio', value: data.data[0].value },
       { kind: 'Energie', value: data.data[1].value },
@@ -34,8 +33,6 @@ function RadarChartPerf() {
       { kind: 'Intensité', value: data.data[5].value },
     ];
 
-    console.log("dataRadar", dataRadar)
-    
     return (
       <div className="radarChart">
         <ResponsiveContainer width="100%" height="100%">
