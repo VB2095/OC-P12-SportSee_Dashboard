@@ -1,6 +1,7 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import useUser from "../../../Hooks/useUser"
 import './radialChart.scss'
+import { UserQueryType } from '../../../Services/userQueryType';
 
 /** 
  * 
@@ -12,7 +13,7 @@ import './radialChart.scss'
 */
 
 function RadialChartScore () {
-    const { data, isLoading, error } = useUser("infos");
+    const { data, isLoading, error } = useUser(UserQueryType.INFOS);
 
     if (isLoading) {
         return <div className="loading">Chargement en cours...</div>;

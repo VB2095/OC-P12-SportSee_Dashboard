@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import useUser from '../../../Hooks/useUser';
 import './barchart.scss';
+import { UserQueryType } from '../../../Services/userQueryType';
 
 
 /**
@@ -16,7 +17,7 @@ import './barchart.scss';
  */
 
 function BarChartActivity() {
-  const { data, isLoading, error } = useUser("activities");
+  const { data, isLoading, error } = useUser(UserQueryType.ACTIVITY);
 
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;

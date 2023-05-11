@@ -1,6 +1,7 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer} from 'recharts';
 import useUser from '../../../Hooks/useUser';
 import './radarChart.scss';
+import { UserQueryType } from '../../../Services/userQueryType';
 
 /**
  * 
@@ -13,8 +14,8 @@ import './radarChart.scss';
  */
 
 function RadarChartPerf() {
-    const { data, setData, isLoading, error } = useUser("performance");
-    const kinds = ['Vitesse', 'Endurance', 'Force', 'Agilité', 'Coordination', 'Réflexes'];
+    const { data, isLoading, error } = useUser(UserQueryType.PERFORMANCE);
+
     if (isLoading) {
       return <div className="loading">Chargement en cours...</div>;
     }

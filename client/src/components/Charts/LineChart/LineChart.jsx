@@ -1,6 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import useUser from "../../../Hooks/useUser"
 import './lineChart.scss'
+import { UserQueryType } from '../../../Services/userQueryType';
 
 /**
  * 
@@ -14,7 +15,7 @@ import './lineChart.scss'
  */
 
 function LineChartSessions () {
-    const { data, isLoading, error } = useUser("average");
+    const { data, isLoading, error } = useUser(UserQueryType.AVERAGE);
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     if (isLoading) {
         return <div className="loading">Chargement en cours...</div>;

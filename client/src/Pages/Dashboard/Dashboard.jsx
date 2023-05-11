@@ -12,6 +12,7 @@ import proteinIcon from '../../assets/proteines.png'
 import glucideIcon from '../../assets/glucides.png'
 import lipidsIcon from '../../assets/lipides.png'
 import './dashboard.scss'
+import { UserQueryType } from '../../Services/userQueryType'
 
 /**
  * 
@@ -28,7 +29,7 @@ import './dashboard.scss'
 
 function Dashboard() {
 
-  const { data, isLoading, error } = useUser("infos");
+  const { data, isLoading, error } = useUser(UserQueryType.INFOS);
   // Si les données sont en cours de chargement, on affiche un indicateur de chargement
   if (isLoading) {
     return <div className="loading">Chargement en cours...</div>;
@@ -36,7 +37,9 @@ function Dashboard() {
 
   // Si une erreur est survenue lors de la récupération des données, on affiche un message d'erreur
   if (error) {
+    console.log("error", error)
     return <div>Une erreur est survenue</div>;
+    
   }
    
   return (
